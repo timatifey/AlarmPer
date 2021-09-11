@@ -24,7 +24,7 @@
         android:id="@+id/header_title"
         style="@style/TobBarTitle"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/background_top_bar"
         android:gravity="center"
         android:text="@string/settings"

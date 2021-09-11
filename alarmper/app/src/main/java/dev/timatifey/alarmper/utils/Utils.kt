@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dev.timatifey.alarmper.R
 import dev.timatifey.alarmper.data.AlarmModel
+import kotlin.random.Random
 
 fun Window.setTransparent() {
     clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -65,7 +66,7 @@ fun Context.showAlarmDetailsDialog(
 
     dialog.apply {
         window!!.setBackgroundDrawable(
-            ContextCompat.getDrawable(context, android.R.color.transparent)
+            ContextCompat.getDrawable(context, R.color.black_blue_80alpha)
         )
 
         val switcherAlarm: SwitchCompat = findViewById(R.id.alarm_switcher)
@@ -101,7 +102,7 @@ fun Context.showAlarmDetailsDialog(
         var currentHour = initAlarm.hours
         var currentMinutes = initAlarm.minutes
 
-        findViewById<TextView>(R.id.alarm_time).apply {
+        val tvAlarmTime = findViewById<TextView>(R.id.alarm_time).apply {
             text = "$currentHour:$currentMinutes"
             setOnClickListener {
                 showTimePickerDialog(
@@ -111,6 +112,22 @@ fun Context.showAlarmDetailsDialog(
                     currentHour = newHours
                     currentMinutes = newMinutes
                     text = "$currentHour:$currentMinutes"
+                }
+            }
+        }
+
+        findViewById<ImageView>(R.id.ic_edit).setOnClickListener {
+            tvAlarmTime.apply {
+                text = "$currentHour:$currentMinutes"
+                setOnClickListener {
+                    showTimePickerDialog(
+                        initHour = currentHour,
+                        initMinute = currentMinutes
+                    ) { newHours, newMinutes ->
+                        currentHour = newHours
+                        currentMinutes = newMinutes
+                        text = "$currentHour:$currentMinutes"
+                    }
                 }
             }
         }
@@ -137,4 +154,21 @@ fun Context.showAlarmDetailsDialog(
             dialog.dismiss()
         }
     }
+}
+
+fun generateAlarmModel(): AlarmModel {
+    val random = Random
+    val current = System.currentTimeMillis()
+    return AlarmModel(
+        id = (current % 10000).toInt(),
+        hours = random.nextInt(0, 24),
+        minutes = random.nextInt(0, 60),
+        description = "Some description $current",
+        isPower = random.nextBoolean(),
+        isVibrate = random.nextBoolean(),
+        needDeleteAfter = random.nextBoolean(),
+        daysOfWeekPower = mutableListOf<Boolean>().apply {
+            repeat(7) { add(random.nextBoolean()) }
+        }
+    )
 }

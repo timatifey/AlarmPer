@@ -18,4 +18,5 @@
     <string name="settings">Настройки</string>
     <string name="notifications">Уведомления</string>
     <string name="app_version">Версия приложения</string>
+    <string name="alarms_list_is_empty">Список будильников пустой</string>
 </resources>

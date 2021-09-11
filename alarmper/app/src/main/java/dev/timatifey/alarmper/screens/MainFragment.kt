@@ -8,12 +8,16 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import dev.timatifey.alarmper.R
 import dev.timatifey.alarmper.data.AlarmModel
+import dev.timatifey.alarmper.utils.generateAlarmModel
 import dev.timatifey.alarmper.utils.showAlarmDetailsDialog
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main), MainView {
 
     private lateinit var viewPager: ViewPager2
@@ -21,6 +25,8 @@ class MainFragment : Fragment(R.layout.fragment_main), MainView {
     private lateinit var ivPlusButton: ImageView
 
     private lateinit var stateAdapter: MainFragmentStateAdapter
+
+    private val alarmsViewModel: AlarmsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,32 +60,7 @@ class MainFragment : Fragment(R.layout.fragment_main), MainView {
         }
 
         ivPlusButton.setOnClickListener {
-            Toast.makeText(context, "Click on plus button", Toast.LENGTH_SHORT).show()
-            requireContext().showAlarmDetailsDialog(
-                initAlarm = AlarmModel(
-                    hours = 16,
-                    minutes = 34,
-                    isPower = true,
-                    isVibrate = false,
-                    needDeleteAfter = true,
-                    description = "My super description!",
-                    daysOfWeekPower = listOf(false, false, true, true, false, true, true)
-                ),
-                onDeleteButtonClicked = {
-                    Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show()
-                },
-                onSaveButtonClicked = { hours, minutes, alarmPower, listDaysWeekOn, newDescription, deleteAfter, vibrate ->
-                    val newAlarm = AlarmModel(
-                        hours = hours,
-                        minutes = minutes,
-                        isPower = alarmPower,
-                        isVibrate = vibrate,
-                        needDeleteAfter = deleteAfter,
-                        description = newDescription,
-                        daysOfWeekPower = listDaysWeekOn
-                    )
-                    Toast.makeText(context, "New alarm: $newAlarm", Toast.LENGTH_SHORT).show()
-                })
+            alarmsViewModel.insertAlarm(generateAlarmModel())
         }
     }
 

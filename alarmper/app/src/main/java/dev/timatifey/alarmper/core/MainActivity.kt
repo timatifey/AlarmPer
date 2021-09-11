@@ -3,10 +3,12 @@ package dev.timatifey.alarmper.core
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.commit
+import dagger.hilt.android.AndroidEntryPoint
 import dev.timatifey.alarmper.R
 import dev.timatifey.alarmper.screens.MainFragment
 import dev.timatifey.alarmper.utils.setTransparent
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
