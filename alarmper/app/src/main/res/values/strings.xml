@@ -14,4 +14,7 @@
     <string name="vibrate_on_signal">Vibrate on signal</string>
     <string name="delete">Delete</string>
     <string name="save">Save</string>
+    <string name="settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="app_version">App version</string>
 </resources>

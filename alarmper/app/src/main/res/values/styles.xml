@@ -23,4 +23,10 @@
         <item name="paddingStart">8dp</item>
         <item name="paddingEnd">8dp</item>
     </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@drawable/background_bottom_bar</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemIconSize">40dp</item>
+    </style>
 </resources>

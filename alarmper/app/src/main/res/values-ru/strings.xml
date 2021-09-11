@@ -2,16 +2,20 @@
 <resources>
     <string name="alarms">Будильники</string>
 
-    <string name="Monday_short">Пон</string>
-    <string name="Tuesday_short">Вто</string>
-    <string name="Wednesday_short">Сре</string>
-    <string name="Thursday_short">Чет</string>
-    <string name="Friday_short">Пят</string>
-    <string name="Saturday_short">Суб</string>
-    <string name="Sunday_short">Вос</string>
-    <string name="description">Description</string>
-    <string name="delete_after_triggering">Delete after triggering</string>
-    <string name="vibrate_on_signal">Vibrate on signal</string>
-    <string name="delete">Delete</string>
-    <string name="save">Save</string>
+    <string name="Monday_short">Пн</string>
+    <string name="Tuesday_short">Вт</string>
+    <string name="Wednesday_short">Ср</string>
+    <string name="Thursday_short">Чт</string>
+    <string name="Friday_short">Пт</string>
+    <string name="Saturday_short">Сб</string>
+    <string name="Sunday_short">Вс</string>
+
+    <string name="description">Описание</string>
+    <string name="delete_after_triggering">Удалить после срабатывания</string>
+    <string name="vibrate_on_signal">Вибрировать при сигнале</string>
+    <string name="delete">Удалить</string>
+    <string name="save">Сохранить</string>
+    <string name="settings">Настройки</string>
+    <string name="notifications">Уведомления</string>
+    <string name="app_version">Версия приложения</string>
 </resources>
