@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="alarms">Будильники</string>
+
+    <string name="Monday_short">Пон</string>
+    <string name="Tuesday_short">Вто</string>
+    <string name="Wednesday_short">Сре</string>
+    <string name="Thursday_short">Чет</string>
+    <string name="Friday_short">Пят</string>
+    <string name="Saturday_short">Суб</string>
+    <string name="Sunday_short">Вос</string>
+    <string name="description">Description</string>
+    <string name="delete_after_triggering">Delete after triggering</string>
+    <string name="vibrate_on_signal">Vibrate on signal</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_alarm_details">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="11dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="16dp" />
+
+    <TextView
+        android:id="@+id/alarm_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
+        tools:text="11:20" />
+
+    <ImageView
+        android:id="@+id/ic_edit"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/alarm_time"
+        app:layout_constraintStart_toEndOf="@id/alarm_time"
+        app:layout_constraintTop_toTopOf="@id/alarm_time"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <ImageView
+        android:id="@+id/ic_close"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="@id/guideline_top" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/alarm_switcher"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/alarm_time"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@id/ic_edit"
+        app:layout_constraintTop_toBottomOf="@id/ic_close"
+        tools:checked="true" />
+
+    <include
+        android:id="@+id/week_days"
+        layout="@layout/week_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/alarm_description"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/alarm_time" />
+
+    <EditText
+        android:id="@+id/alarm_description"
+        style="@style/Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/description"
+        android:inputType="textMultiLine"
+        android:maxLength="150"
+        android:maxLines="3"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/orange"
+        android:textColorHint="@color/gray"
+        android:textColorLink="@color/orange"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/week_days"
+        tools:text="Some description" />
+
+    <TextView
+        android:id="@+id/delete_after"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/delete_after_triggering"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/delete_after_switcher"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/alarm_description" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/delete_after_switcher"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/delete_after"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/delete_after"
+        app:layout_constraintTop_toTopOf="@id/delete_after"
+        tools:checked="true" />
+
+    <TextView
+        android:id="@+id/vibrate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="@string/vibrate_on_signal"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/vibrate_switcher"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/delete_after" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/vibrate_switcher"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@id/vibrate"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/vibrate"
+        app:layout_constraintTop_toTopOf="@id/vibrate"
+        tools:checked="true" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/delete_btn"
+        style="@style/WhiteColorTextButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_gray_btn"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toStartOf="@id/save_btn"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/vibrate"
+        app:layout_constraintWidth_percent="0.35" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_btn"
+        style="@style/WhiteColorTextButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_orange_btn"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/delete_btn"
+        app:layout_constraintTop_toBottomOf="@id/vibrate"
+        app:layout_constraintWidth_percent="0.35" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

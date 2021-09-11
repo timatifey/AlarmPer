@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">AlarmPer</string>
+    <string name="app_name" translatable="false">AlarmPer</string>
+    <string name="alarms">Alarms</string>
+
+    <string name="Monday_short">Mon</string>
+    <string name="Tuesday_short">Tue</string>
+    <string name="Wednesday_short">Wed</string>
+    <string name="Thursday_short">Thu</string>
+    <string name="Friday_short">Fri</string>
+    <string name="Saturday_short">Sat</string>
+    <string name="Sunday_short">Sun</string>
+    <string name="description">Description</string>
+    <string name="delete_after_triggering">Delete after triggering</string>
+    <string name="vibrate_on_signal">Vibrate on signal</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
 </resources>
