@@ -66,7 +66,7 @@ fun Context.showAlarmDetailsDialog(
 
     dialog.apply {
         window!!.setBackgroundDrawable(
-            ContextCompat.getDrawable(context, R.color.black_blue_80alpha)
+            ContextCompat.getDrawable(context, android.R.color.transparent)
         )
 
         val switcherAlarm: SwitchCompat = findViewById(R.id.alarm_switcher)
