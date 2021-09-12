@@ -188,5 +188,4 @@
         app:layout_constraintTop_toBottomOf="@id/vibrate"
         app:layout_constraintWidth_percent="0.35" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

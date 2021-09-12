@@ -9,6 +9,7 @@
     <string name="Friday_short">Fri</string>
     <string name="Saturday_short">Sat</string>
     <string name="Sunday_short">Sun</string>
+
     <string name="description">Description</string>
     <string name="delete_after_triggering">Delete after triggering</string>
     <string name="vibrate_on_signal">Vibrate on signal</string>
