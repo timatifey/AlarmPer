@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <CheckedTextView
+        android:id="@+id/monday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Monday_short"
+        tools:checked="true" />
+
+    <CheckedTextView
+        android:id="@+id/tuesday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Tuesday_short"
+        tools:checked="false" />
+
+    <CheckedTextView
+        android:id="@+id/wednesday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Wednesday_short"
+        tools:checked="true" />
+
+    <CheckedTextView
+        android:id="@+id/thursday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Thursday_short"
+        tools:checked="false" />
+
+    <CheckedTextView
+        android:id="@+id/friday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Friday_short"
+        tools:checked="true" />
+
+    <CheckedTextView
+        android:id="@+id/saturday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Saturday_short"
+        tools:checked="true" />
+
+    <CheckedTextView
+        android:id="@+id/sunday"
+        style="@style/WeekDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Sunday_short"
+        tools:checked="false" />
+</LinearLayout>
