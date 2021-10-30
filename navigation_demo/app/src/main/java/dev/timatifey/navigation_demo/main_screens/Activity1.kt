@@ -24,11 +24,22 @@ class Activity1 : AppCompatActivity() {
             navToActivity2()
         }
 
+        binding.btnToSecondNoHistory.setOnClickListener {
+            navToActivity2NoHistory()
+        }
+
         setupDrawer(binding.drawer, binding.drawerNav)
     }
 
     private fun navToActivity2() {
         startActivity(Intent(this, Activity2::class.java))
+    }
+
+    private fun navToActivity2NoHistory() {
+        startActivity(
+            Intent(this, Activity2::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+        )
     }
 
 }

@@ -1,5 +1,6 @@
 package dev.timatifey.navigation_demo.main_screens
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dev.timatifey.navigation_demo.databinding.Activity3Binding
@@ -27,12 +28,12 @@ class Activity3 : AppCompatActivity() {
     }
 
     private fun navToActivity1() {
-        setResult(Activity2.RESULT_CODE_TO_FIRST)
-        finish()
+        startActivity(Intent(this, Activity1::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        )
     }
 
     private fun navToActivity2() {
-        setResult(Activity2.RESULT_CODE_TO_SECOND)
         finish()
     }
 

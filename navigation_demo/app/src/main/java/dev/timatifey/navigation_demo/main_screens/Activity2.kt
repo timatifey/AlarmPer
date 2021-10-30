@@ -26,36 +26,11 @@ class Activity2 : AppCompatActivity() {
         setupDrawer(binding.drawer, binding.drawerNav)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_CODE_THIRD) {
-            when (resultCode) {
-                RESULT_CODE_TO_FIRST -> {
-                    navToActivity1()
-                }
-                RESULT_CODE_TO_SECOND -> return
-                else -> return
-            }
-            return
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     private fun navToActivity1() {
         finish()
     }
 
     private fun navToActivity3() {
-        startActivityForResult(
-            Intent(
-                this,
-                Activity3::class.java
-            ), REQUEST_CODE_THIRD
-        )
-    }
-
-    companion object {
-        private const val REQUEST_CODE_THIRD = 100
-        const val RESULT_CODE_TO_FIRST = REQUEST_CODE_THIRD + 1
-        const val RESULT_CODE_TO_SECOND = REQUEST_CODE_THIRD + 2
+        startActivity( Intent(this, Activity3::class.java))
     }
 }
