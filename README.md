@@ -6,7 +6,7 @@ Course project and [laboratory work](https://github.com/andrei-kuznetsov/android
 
 - [X] [Лабораторная работа №1. Layouts](labs/lab1_layouts.pdf);
 - [X] [Лабораторная работа №2. Activity Lifecycle. Alternative resources](labs/lab2_lifecycle_res.pdf);
-- [ ] Лабораторная работа №3. Lifecycle компоненты. Навигация в приложении;
+- [X] [Лабораторная работа №3. Lifecycle компоненты. Навигация в приложении](labs/lab3_lifecycle_comp_nav.pdf);
 - [ ] Лабораторная работа №4. RecyclerView;
 - [ ] Лабораторная работа №5. UI Tests;
 - [ ] Лабораторная работа №6. Многопоточные Android приложения;
