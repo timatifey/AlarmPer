@@ -14,17 +14,9 @@
             android:exported="true"
             android:label="@string/about" />
         <activity
-            android:name=".main_screens.Activity3"
+            android:name=".main_screens.MainActivity"
             android:exported="true"
-            android:label="Activity 3" />
-        <activity
-            android:name=".main_screens.Activity2"
-            android:exported="true"
-            android:label="Activity 2" />
-        <activity
-            android:name=".main_screens.Activity1"
-            android:exported="true"
-            android:label="Activity 1">
+            android:label="Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
