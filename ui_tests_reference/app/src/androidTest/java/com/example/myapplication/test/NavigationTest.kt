@@ -113,7 +113,7 @@ class NavigationTest : TestCase() {
                 }
             }
             step("Check press back button close app") {
-                Espresso.pressBackUnconditionally()
+                pressBackWithCheckAppClose()
             }
         }
     }
