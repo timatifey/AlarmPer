@@ -6,7 +6,7 @@ import androidx.test.espresso.NoActivityResumedException
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
-import com.example.myapplication.MainActivity
+import com.example.myapplication.main_screens.MainActivity
 import com.example.myapplication.screen.MainScreen.openAboutScreen
 import com.example.myapplication.screen.MainScreen.pressBack
 import com.example.myapplication.screen.Screen1

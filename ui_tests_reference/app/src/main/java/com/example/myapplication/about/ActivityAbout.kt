@@ -1,9 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.about
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import dev.timatifey.navigation_demo.R
 
-class AboutActivity : AppCompatActivity() {
+class ActivityAbout : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
