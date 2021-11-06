@@ -9,7 +9,7 @@ abstract class BaseScreen<out T : KScreen<T>>(@IdRes containerId: Int) : KScreen
     private val container = KView { withId(containerId) }
 
     fun isDisplayed() {
-
+        container.isDisplayed()
     }
 
 }
