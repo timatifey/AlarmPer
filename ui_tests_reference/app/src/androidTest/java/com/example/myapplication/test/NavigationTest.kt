@@ -33,17 +33,17 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("1. Check first screen is displayed and open about screen") {
+            step("Check first screen is displayed and open about screen") {
                 Screen1 {
                     isDisplayed()
                     openAboutScreen()
                 }
                 rotateActivity()
             }
-            step("2. Check from first screen") {
+            step("Check from first screen") {
                 scenario(CheckAboutScreenAndPressBackScenario())
             }
-            step("3. Check first screen is displayed, navigate to second") {
+            step("Check first screen is displayed, navigate to second") {
                 Screen1 {
                     isDisplayed()
                     btnToSecond {
@@ -52,17 +52,17 @@ class NavigationTest : TestCase() {
                     }
                 }
             }
-            step("4. Check second screen is displayed and open about screen") {
+            step("Check second screen is displayed and open about screen") {
                 Screen2 {
                     isDisplayed()
                     openAboutScreen()
                 }
                 rotateActivity()
             }
-            step("5. Check from second screen") {
+            step("Check from second screen") {
                 scenario(CheckAboutScreenAndPressBackScenario())
             }
-            step("6. Check second screen is displayed, navigate to third") {
+            step("Check second screen is displayed, navigate to third") {
                 Screen2 {
                     isDisplayed()
                     btnToThird {
@@ -71,17 +71,17 @@ class NavigationTest : TestCase() {
                     }
                 }
             }
-            step("7. Check third screen is displayed and open about screen") {
+            step("Check third screen is displayed and open about screen") {
                 Screen3 {
                     isDisplayed()
                     openAboutScreen()
                 }
                 rotateActivity()
             }
-            step("8. Check from third screen") {
+            step("Check from third screen") {
                 scenario(CheckAboutScreenAndPressBackScenario())
             }
-            step("9. Check third screen is displayed") {
+            step("Check third screen is displayed") {
                 Screen3 {
                     isDisplayed()
                 }
@@ -96,10 +96,10 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("1. Navigate from first to third screen") {
+            step("Navigate from first to third screen") {
                 scenario(FirstToThirdScenario())
             }
-            step("2. Navigate to first screen") {
+            step("Navigate to first screen") {
                 Screen3 {
                     btnToFirst {
                         isDisplayed()
@@ -107,12 +107,12 @@ class NavigationTest : TestCase() {
                     }
                 }
             }
-            step("3. Check first screen is displayed") {
+            step("Check first screen is displayed") {
                 Screen1 {
                     isDisplayed()
                 }
             }
-            step("4. Check press back button close app") {
+            step("Check press back button close app") {
                 Espresso.pressBackUnconditionally()
             }
         }
@@ -125,29 +125,29 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("1. Navigate from first to third screen") {
+            step("Navigate from first to third screen") {
                 scenario(FirstToThirdScenario())
             }
             rotateActivity()
-            step("2. Navigate to second screen with back button") {
+            step("Navigate to second screen with back button") {
                 Screen3 {
                     pressBack()
                 }
             }
             rotateActivity()
-            step("3. Check second screen is displayed and navigate to first screen with back button") {
+            step("Check second screen is displayed and navigate to first screen with back button") {
                 Screen2 {
                     isDisplayed()
                     pressBack()
                 }
             }
             rotateActivity()
-            step("4. Check first screen is displayed") {
+            step("Check first screen is displayed") {
                 Screen1 {
                     isDisplayed()
                 }
             }
-            step("5. Check press back button close app") {
+            step("Check press back button close app") {
                 pressBackWithCheckAppClose()
             }
         }
@@ -160,11 +160,11 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("1. Navigate from first to third screen") {
+            step("Navigate from first to third screen") {
                 scenario(FirstToThirdScenario())
             }
             rotateActivity()
-            step("2. Navigate to second screen") {
+            step("Navigate to second screen") {
                 Screen3 {
                     btnToSecond {
                         isDisplayed()
@@ -173,19 +173,19 @@ class NavigationTest : TestCase() {
                 }
             }
             rotateActivity()
-            step("3. Check second screen is displayed and navigate to first screen with back button") {
+            step("Check second screen is displayed and navigate to first screen with back button") {
                 Screen2 {
                     isDisplayed()
                     pressBack()
                 }
             }
             rotateActivity()
-            step("4. Check first screen is displayed") {
+            step("Check first screen is displayed") {
                 Screen1 {
                     isDisplayed()
                 }
             }
-            step("5. Check press back button close app") {
+            step("Check press back button close app") {
                 pressBackWithCheckAppClose()
             }
         }
@@ -198,7 +198,7 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("1. Check first screen is displayed and navigate to second screen") {
+            step("Check first screen is displayed and navigate to second screen") {
                 Screen1 {
                     isDisplayed()
                     btnToSecond {
@@ -207,7 +207,7 @@ class NavigationTest : TestCase() {
                     }
                 }
             }
-            step("2. Check second screen is displayed and navigate to first screen") {
+            step("Check second screen is displayed and navigate to first screen") {
                 Screen2 {
                     isDisplayed()
                     btnToFirst {
@@ -217,12 +217,12 @@ class NavigationTest : TestCase() {
                 }
             }
             rotateActivity()
-            step("3. Check first screen is displayed") {
+            step("Check first screen is displayed") {
                 Screen1 {
                     isDisplayed()
                 }
             }
-            step("4. Check press back button close app") {
+            step("Check press back button close app") {
                 pressBackWithCheckAppClose()
             }
         }

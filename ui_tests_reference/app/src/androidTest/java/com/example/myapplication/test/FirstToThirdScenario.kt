@@ -10,7 +10,7 @@ import com.kaspersky.kaspresso.testcases.core.testcontext.TestContext
 class FirstToThirdScenario<ScenarioData> : BaseScenario<ScenarioData>() {
 
     override val steps: TestContext<ScenarioData>.() -> Unit = {
-        step("1. Check first screen is displayed and navigate to second screen") {
+        step("Check first screen is displayed and navigate to second screen") {
             Screen1 {
                 isDisplayed()
                 btnToSecond {
@@ -19,7 +19,7 @@ class FirstToThirdScenario<ScenarioData> : BaseScenario<ScenarioData>() {
                 }
             }
         }
-        step("2. Check second screen is displayed and navigate to third screen") {
+        step("Check second screen is displayed and navigate to third screen") {
             Screen2 {
                 isDisplayed()
                 btnToThird {
@@ -28,7 +28,7 @@ class FirstToThirdScenario<ScenarioData> : BaseScenario<ScenarioData>() {
                 }
             }
         }
-        step("3. Check third screen is displayed") {
+        step("Check third screen is displayed") {
             Screen3 {
                 isDisplayed()
             }
