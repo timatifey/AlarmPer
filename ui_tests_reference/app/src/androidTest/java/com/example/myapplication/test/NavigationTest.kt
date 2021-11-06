@@ -2,7 +2,6 @@ package com.example.myapplication.test
 
 import android.content.pm.ActivityInfo
 import androidx.lifecycle.Lifecycle
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.NoActivityResumedException
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -127,25 +126,25 @@ class NavigationTest : TestCase() {
         }.run {
             step("Navigate from first to third screen") {
                 scenario(FirstToThirdScenario())
+                rotateActivity()
             }
-            rotateActivity()
             step("Navigate to second screen with back button") {
                 Screen3 {
                     pressBack()
                 }
             }
-            rotateActivity()
             step("Check second screen is displayed and navigate to first screen with back button") {
                 Screen2 {
                     isDisplayed()
                     pressBack()
                 }
+                rotateActivity()
             }
-            rotateActivity()
             step("Check first screen is displayed") {
                 Screen1 {
                     isDisplayed()
                 }
+                rotateActivity()
             }
             step("Check press back button close app") {
                 pressBackWithCheckAppClose()

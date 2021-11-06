@@ -2,7 +2,6 @@ package com.example.myapplication.screen
 
 import com.example.myapplication.AboutActivity
 import com.example.myapplication.R
-import com.kaspersky.kaspresso.screens.KScreen
 
 object AboutScreen: BaseScreen<AboutScreen>(R.id.activity_about) {
 

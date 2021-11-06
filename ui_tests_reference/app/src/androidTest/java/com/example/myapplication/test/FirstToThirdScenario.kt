@@ -1,6 +1,5 @@
 package com.example.myapplication.test
 
-import androidx.test.espresso.action.ViewActions.click
 import com.example.myapplication.screen.Screen1
 import com.example.myapplication.screen.Screen2
 import com.example.myapplication.screen.Screen3

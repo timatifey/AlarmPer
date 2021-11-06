@@ -2,7 +2,6 @@ package com.example.myapplication.screen
 
 import com.example.myapplication.Fragment3
 import com.example.myapplication.R
-import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.text.KButton
 
 object Screen3 : BaseScreen<Screen3>(R.id.fragment3) {
