@@ -1,4 +1,4 @@
-package com.example.myapplication.main_screens
+package com.example.myapplication
 
 import android.os.Bundle
 import android.view.LayoutInflater

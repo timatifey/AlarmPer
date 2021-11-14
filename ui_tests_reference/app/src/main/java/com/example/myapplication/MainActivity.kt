@@ -1,4 +1,4 @@
-package com.example.myapplication.main_screens
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             drawerNav.setNavigationItemSelectedListener {
-                if (it.itemId == R.id.nav_about) {
+                if (it.itemId == R.id.aboutActivity) {
                     drawer.closeDrawer(GravityCompat.START, true)
                     navController.navigate(R.id.action_to_activityAbout)
                 }
