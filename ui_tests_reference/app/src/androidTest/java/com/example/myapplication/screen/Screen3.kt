@@ -12,4 +12,18 @@ object Screen3 : BaseScreen<Screen3>(R.id.fragment3) {
     val btnToFirst = KButton { withId(R.id.bnToFirst) }
 
     val btnToSecond = KButton { withId(R.id.bnToSecond) }
+
+    fun toFirst() {
+        btnToFirst {
+            isDisplayed()
+            click()
+        }
+    }
+
+    fun toSecond() {
+        btnToSecond {
+            isDisplayed()
+            click()
+        }
+    }
 }

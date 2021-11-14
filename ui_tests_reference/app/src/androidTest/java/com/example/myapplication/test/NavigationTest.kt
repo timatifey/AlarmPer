@@ -7,8 +7,8 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
 import com.example.myapplication.MainActivity
-import com.example.myapplication.screen.MainScreen.openAboutScreen
 import com.example.myapplication.screen.MainScreen.pressBack
+import com.example.myapplication.screen.MainScreen.pressUp
 import com.example.myapplication.screen.Screen1
 import com.example.myapplication.screen.Screen2
 import com.example.myapplication.screen.Screen3
@@ -26,62 +26,35 @@ class NavigationTest : TestCase() {
     val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun accessToAboutScreenFromAllOtherScreensTest() {
+    fun accessToAboutScreenFromOtherScreensBackTest() {
         val scenario = activityScenarioRule.scenario
         before {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("Check first screen is displayed and open about screen") {
+            step("First screen") {
                 Screen1 {
                     isDisplayed()
-                    openAboutScreen()
-                }
-                rotateActivity()
-            }
-            step("Check from first screen") {
-                scenario(CheckAboutScreenAndPressBackScenario())
-            }
-            step("Check first screen is displayed, navigate to second") {
-                Screen1 {
+                    scenario(AboutScreenScenario())
+                    rotateActivity()
                     isDisplayed()
-                    btnToSecond {
-                        isDisplayed()
-                        click()
-                    }
+                    toSecond()
                 }
             }
-            step("Check second screen is displayed and open about screen") {
+            step("Second screen") {
                 Screen2 {
                     isDisplayed()
-                    openAboutScreen()
-                }
-                rotateActivity()
-            }
-            step("Check from second screen") {
-                scenario(CheckAboutScreenAndPressBackScenario())
-            }
-            step("Check second screen is displayed, navigate to third") {
-                Screen2 {
+                    scenario(AboutScreenScenario())
+                    rotateActivity()
                     isDisplayed()
-                    btnToThird {
-                        isDisplayed()
-                        click()
-                    }
+                    toThird()
                 }
             }
-            step("Check third screen is displayed and open about screen") {
+            step("Third screen") {
                 Screen3 {
                     isDisplayed()
-                    openAboutScreen()
-                }
-                rotateActivity()
-            }
-            step("Check from third screen") {
-                scenario(CheckAboutScreenAndPressBackScenario())
-            }
-            step("Check third screen is displayed") {
-                Screen3 {
+                    scenario(AboutScreenScenario())
+                    rotateActivity()
                     isDisplayed()
                 }
             }
@@ -89,30 +62,210 @@ class NavigationTest : TestCase() {
     }
 
     @Test
-    fun fullCycleTest() {
+    fun accessToAboutScreenFromOtherScreensUpTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("First screen") {
+                Screen1 {
+                    isDisplayed()
+                    scenario(AboutScreenScenario(false))
+                    rotateActivity()
+                    isDisplayed()
+                    toSecond()
+                }
+            }
+            step("Second screen") {
+                Screen2 {
+                    isDisplayed()
+                    scenario(AboutScreenScenario(false))
+                    rotateActivity()
+                    isDisplayed()
+                    toThird()
+                }
+            }
+            step("Third screen") {
+                Screen3 {
+                    isDisplayed()
+                    scenario(AboutScreenScenario(false))
+                    rotateActivity()
+                    isDisplayed()
+                }
+            }
+        }
+    }
+
+    @Test
+    fun popUpBackstackFromThirdToFirstTest() {
         val scenario = activityScenarioRule.scenario
         before {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
             step("Navigate from first to third screen") {
-                scenario(FirstToThirdScenario())
+                scenario(FromFirstToThirdScenario())
             }
             step("Navigate to first screen") {
+                rotateActivity()
                 Screen3 {
-                    btnToFirst {
-                        isDisplayed()
-                        click()
-                    }
+                    isDisplayed()
+                    toFirst()
                 }
             }
             step("Check first screen is displayed") {
                 Screen1 {
+                    rotateActivity()
                     isDisplayed()
+                    navUpButton.doesNotExist()
                 }
             }
-            step("Check press back button close app") {
-                pressBackWithCheckAppClose()
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
+            }
+        }
+    }
+
+    @Test
+    fun popUpBackstackFromThirdToSecondBackTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("Navigate from first to third screen") {
+                scenario(FromFirstToThirdScenario())
+            }
+            step("Navigate to second screen") {
+                rotateActivity()
+                Screen3 {
+                    isDisplayed()
+                    toSecond()
+                }
+            }
+            step("Check second screen is displayed") {
+                Screen2 {
+                    rotateActivity()
+                    isDisplayed()
+                    navUpButton.isDisplayed()
+                }
+            }
+            step("Press back and check is first screen") {
+                pressBack()
+                Screen1 {
+                    isDisplayed()
+                    navUpButton.doesNotExist()
+                }
+            }
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
+            }
+        }
+    }
+
+    @Test
+    fun popUpBackstackFromThirdToSecondUpTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("Navigate from first to third screen") {
+                scenario(FromFirstToThirdScenario())
+            }
+            step("Navigate to second screen") {
+                rotateActivity()
+                Screen3 {
+                    isDisplayed()
+                    toSecond()
+                }
+            }
+            step("Check second screen is displayed") {
+                Screen2 {
+                    rotateActivity()
+                    isDisplayed()
+                    navUpButton.isDisplayed()
+                }
+            }
+            step("Press up and check is first screen") {
+                pressUp()
+                Screen1 {
+                    isDisplayed()
+                    navUpButton.doesNotExist()
+                }
+            }
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
+            }
+        }
+    }
+
+    @Test
+    fun popUpBackstackFromSecondToFirstBackTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("Navigate from first to second screen") {
+                scenario(FromFirstToSecondScenario())
+            }
+            step("Navigate to first screen") {
+                Screen2.toFirst()
+                Screen1 {
+                    isDisplayed()
+                    navUpButton.doesNotExist()
+                }
+            }
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
+            }
+        }
+    }
+
+    @Test
+    fun backstackFromSecondToFirstBackTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("Navigate from first to second screen") {
+                scenario(FromFirstToSecondScenario())
+            }
+            step("Press back and check is first screen") {
+                pressBack()
+                Screen1 {
+                    isDisplayed()
+                    navUpButton.doesNotExist()
+                }
+            }
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
+            }
+        }
+    }
+
+    @Test
+    fun backstackFromSecondToFirstUpTest() {
+        val scenario = activityScenarioRule.scenario
+        before {
+            scenario.moveToState(Lifecycle.State.RESUMED)
+        }.after {
+        }.run {
+            step("Navigate from first to second screen") {
+                scenario(FromFirstToSecondScenario())
+            }
+            step("Press up and check is first screen") {
+                pressUp()
+                Screen1 {
+                    isDisplayed()
+                    navUpButton.doesNotExist()
+                }
+            }
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
             }
         }
     }
@@ -124,105 +277,42 @@ class NavigationTest : TestCase() {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("Navigate from first to third screen") {
-                scenario(FirstToThirdScenario())
-                rotateActivity()
+            scenario(FromFirstToThirdScenario())
+            step("Navigate to second screen and check") {
+                pressBack()
+                Screen2.isDisplayed()
             }
-            step("Navigate to second screen with back button") {
-                Screen3 {
-                    pressBack()
-                }
+            step("Navigate to first screen and check") {
+                pressBack()
+                Screen1.isDisplayed()
             }
-            step("Check second screen is displayed and navigate to first screen with back button") {
-                Screen2 {
-                    isDisplayed()
-                    pressBack()
-                }
-                rotateActivity()
-            }
-            step("Check first screen is displayed") {
-                Screen1 {
-                    isDisplayed()
-                }
-                rotateActivity()
-            }
-            step("Check press back button close app") {
-                pressBackWithCheckAppClose()
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
             }
         }
     }
 
     @Test
-    fun fromThirdToFirstTest() {
+    fun fromThirdToFirstWithUpButtonTest() {
         val scenario = activityScenarioRule.scenario
         before {
             scenario.moveToState(Lifecycle.State.RESUMED)
         }.after {
         }.run {
-            step("Navigate from first to third screen") {
-                scenario(FirstToThirdScenario())
+            scenario(FromFirstToThirdScenario())
+            step("Navigate to second screen and check") {
+                pressUp()
+                Screen2.isDisplayed()
             }
-            rotateActivity()
-            step("Navigate to second screen") {
-                Screen3 {
-                    btnToSecond {
-                        isDisplayed()
-                        click()
-                    }
-                }
-            }
-            rotateActivity()
-            step("Check second screen is displayed and navigate to first screen with back button") {
-                Screen2 {
-                    isDisplayed()
-                    pressBack()
-                }
-            }
-            rotateActivity()
-            step("Check first screen is displayed") {
+            step("Navigate to first screen and check") {
+                pressUp()
                 Screen1 {
                     isDisplayed()
+                    navUpButton.doesNotExist()
                 }
             }
-            step("Check press back button close app") {
-                pressBackWithCheckAppClose()
-            }
-        }
-    }
-
-    @Test
-    fun fromSecondToFirstTest() {
-        val scenario = activityScenarioRule.scenario
-        before {
-            scenario.moveToState(Lifecycle.State.RESUMED)
-        }.after {
-        }.run {
-            step("Check first screen is displayed and navigate to second screen") {
-                Screen1 {
-                    isDisplayed()
-                    btnToSecond {
-                        isDisplayed()
-                        click()
-                    }
-                }
-            }
-            step("Check second screen is displayed and navigate to first screen") {
-                Screen2 {
-                    isDisplayed()
-                    btnToFirst {
-                        isDisplayed()
-                        click()
-                    }
-                }
-            }
-            rotateActivity()
-            step("Check first screen is displayed") {
-                Screen1 {
-                    isDisplayed()
-                }
-            }
-            step("Check press back button close app") {
-                pressBackWithCheckAppClose()
+            step("Check back button close app") {
+                checkAppCloseByBackButton()
             }
         }
     }
@@ -235,10 +325,11 @@ class NavigationTest : TestCase() {
                     else -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                 }
             }
+            Thread.sleep(500)
         }
     }
 
-    private fun pressBackWithCheckAppClose() {
+    private fun checkAppCloseByBackButton() {
         var appClosed = false
         try {
             pressBack()
@@ -247,4 +338,5 @@ class NavigationTest : TestCase() {
         }
         assertTrue(appClosed)
     }
+
 }
