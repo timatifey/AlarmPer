@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         with(binding) {
-            drawerNav.setNavigationItemSelectedListener {
-                if (it.itemId == R.id.nav_about) {
-                    drawer.closeDrawer(GravityCompat.START, true)
+            drawerNavView.setNavigationItemSelectedListener {
+                if (it.itemId == R.id.aboutActivity) {
+                    drawerLayout.closeDrawer(GravityCompat.START, true)
                     navController.navigate(R.id.action_to_activityAbout)
                 }
                 true

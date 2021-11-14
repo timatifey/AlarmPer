@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Navigation Demo</string>
+    <string name="to_second">to second</string>
+    <string name="to_first">to first</string>
+    <string name="to_third">to third</string>
+    <string name="about">About</string>
+    <string name="to_second_no_history">to second no history</string>
+</resources>

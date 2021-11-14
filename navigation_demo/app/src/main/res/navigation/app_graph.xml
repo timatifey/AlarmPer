@@ -43,7 +43,7 @@
     </fragment>
     <activity
         android:id="@+id/activityAbout"
-        android:name="dev.timatifey.navigation_demo.about.ActivityAbout"
+        android:name="dev.timatifey.navigation_demo.about.AboutActivity"
         android:label="activity_about"
         tools:layout="@layout/activity_about" />
     <action
