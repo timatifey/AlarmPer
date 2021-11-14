@@ -10,13 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation_demo">
         <activity
-            android:name=".about.ActivityAbout"
-            android:exported="true"
-            android:label="@string/about" />
+            android:name=".about.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".main_screens.MainActivity" />
         <activity
             android:name=".main_screens.MainActivity"
             android:exported="true"
-            android:label="Main">
+            android:label="Main"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment2"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
-        android:id="@+id/btn_to_first"
+        android:id="@+id/bnToFirst"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/to_first"
@@ -15,13 +16,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_to_third"
+        android:id="@+id/bnToThird"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/to_third"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_to_first" />
+        app:layout_constraintTop_toBottomOf="@id/bnToFirst" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
