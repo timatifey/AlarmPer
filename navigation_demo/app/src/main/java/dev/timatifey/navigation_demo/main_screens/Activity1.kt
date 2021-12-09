@@ -3,6 +3,7 @@ package dev.timatifey.navigation_demo.main_screens
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.widget.TextView
 import androidx.core.view.GravityCompat
@@ -14,9 +15,12 @@ import dev.timatifey.navigation_demo.utils.setupDrawer
 class Activity1 : AppCompatActivity() {
 
     private lateinit var binding: Activity1Binding
-
+    companion object {
+        const val TAG = "Activity1"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate")
         binding = Activity1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -31,6 +35,15 @@ class Activity1 : AppCompatActivity() {
         setupDrawer(binding.drawer, binding.drawerNav)
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.d(TAG, "onNewIntent: flags = ${intent?.flags}")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
+    }
     private fun navToActivity2() {
         startActivity(Intent(this, Activity2::class.java))
     }

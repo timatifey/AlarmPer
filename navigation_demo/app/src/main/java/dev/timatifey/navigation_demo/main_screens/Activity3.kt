@@ -30,6 +30,7 @@ class Activity3 : AppCompatActivity() {
     private fun navToActivity1() {
         startActivity(Intent(this, Activity1::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         )
     }
 

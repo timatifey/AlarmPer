@@ -11,15 +11,12 @@
         android:theme="@style/Theme.Navigation_demo">
         <activity
             android:name=".about.ActivityAbout"
-            android:exported="true"
             android:label="@string/about" />
         <activity
             android:name=".main_screens.Activity3"
-            android:exported="true"
             android:label="Activity 3" />
         <activity
             android:name=".main_screens.Activity2"
-            android:exported="true"
             android:label="Activity 2" />
         <activity
             android:name=".main_screens.Activity1"
