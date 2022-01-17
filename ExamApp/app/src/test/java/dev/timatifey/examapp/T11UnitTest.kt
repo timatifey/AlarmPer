@@ -131,6 +131,35 @@ class T11UnitTest {
     }
 
     @Test
+    fun portTest() {
+        val port2055Intent = MyIntent().apply {
+            data = URI("http://localhost:2055")
+        }
+        val emptyPortIntent = MyIntent().apply {
+            data = URI("http://localhost")
+        }
+        val emptyFilter = MyIntentFilter().apply {
+            scheme = "http"
+            host = "localhost"
+        }
+        val port2055Filter = MyIntentFilter().apply {
+            scheme = "http"
+            host = "localhost"
+            port = "2055"
+        }
+        val port8080Filter = MyIntentFilter().apply {
+            scheme = "http"
+            host = "localhost"
+            port = "8080"
+        }
+        Assert.assertTrue(IntentResolution.match(port2055Intent, emptyFilter))
+        Assert.assertTrue(IntentResolution.match(port2055Intent, port2055Filter))
+        Assert.assertFalse(IntentResolution.match(port2055Intent, port8080Filter))
+        Assert.assertFalse(IntentResolution.match(emptyPortIntent, port2055Filter))
+        Assert.assertTrue(IntentResolution.match(emptyPortIntent, emptyFilter))
+    }
+
+    @Test
     fun pathTest() {
         val video1Intent = MyIntent().apply {
             data = URI("http://youtube.com/video/1")
